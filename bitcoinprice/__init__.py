@@ -18,7 +18,11 @@ class BitcoinPriceSkill(MycroftSkill):
         self.register_intent(intent, self.handle_intent)
 
     def handle_intent(self, message):
-        self.speak("500 USD")
+        try:
+            r = requests.get("http://apiv2.bitcoinaverage.com/indices/local/ticker/btcusd")
+            self.speak_dialog("bitcoin.price", data={'price': str(r.json()['averages']['day'])})
+        except:
+            self.speak_dialog("not.found")
 
     def stop(self):
         pass

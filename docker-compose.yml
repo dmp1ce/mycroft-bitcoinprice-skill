@@ -1,0 +1,10 @@
+version: '2'
+services:
+  mycroft:
+    image: mycroftai/docker-mycroft
+    devices:
+      - "/dev/snd:/dev/snd"
+    privileged: true
+    command: supervisord -n
+    volumes:        
+      - ./bitcoinprice:/mycroft/ai/mycroft/skills/bitcoinprice
