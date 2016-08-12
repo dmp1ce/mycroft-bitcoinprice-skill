@@ -1,6 +1,7 @@
 # Mycroft bitcoin price skill
 
 > You: "Hey Mycroft, what is the bitcoin price?"
+
 > Mycroft: "600 USD is the bitcoin daily average price."
 
 ## Usage
