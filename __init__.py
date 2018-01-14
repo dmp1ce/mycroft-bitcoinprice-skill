@@ -3,6 +3,7 @@ from os.path import dirname
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
+import requests
 
 __author__ = 'dmp1ce'
 LOGGER = getLogger(__name__)
@@ -19,8 +20,8 @@ class BitcoinPriceSkill(MycroftSkill):
 
     def handle_intent(self, message):
         try:
-            r = requests.get("http://apiv2.bitcoinaverage.com/indices/local/ticker/btcusd")
-            self.speak_dialog("bitcoin.price", data={'price': str(r.json()['averages']['day'])})
+            r = requests.get("http://apiv2.bitcoinaverage.com/indices/local/ticker/BTCUSD")
+            self.speak_dialog("bitcoin.price", data={'price': str(r.json()['last'])})
         except:
             self.speak_dialog("not.found")
 
