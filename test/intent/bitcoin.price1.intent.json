@@ -1,5 +1,5 @@
 {
-  "utterance": "whate is the bitcoin price",
+  "utterance": "what is the bitcoin price",
   "intent_type": "BitcoinPriceIntent",
   "intent": {
     "BitcoinPriceKeyword": "bitcoin price"
